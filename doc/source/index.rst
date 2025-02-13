@@ -1,4 +1,4 @@
-.. mdinclude:: ../index_readme.md
+.. mdinclude:: ../../README.md
     :start-line: 0
 
 .. toctree::
