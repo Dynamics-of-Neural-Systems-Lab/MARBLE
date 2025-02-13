@@ -24,7 +24,7 @@ def construct_dataset(
     local_gauges=False,
     seed=None,
     metric="euclidean",
-    number_of_eigenvectors=None
+    number_of_eigenvectors=None,
 ):
     """Construct PyG dataset from node positions and features.
 
@@ -46,7 +46,7 @@ def construct_dataset(
         seed: Specify for reproducibility in the furthest point sampling.
               The default is None, which means a random starting vertex.
         metric: metric used to fit proximity graph
-        number_of_eigenvectors: integer number of eigenvectors to use. Default: None, meaning use all.
+        number_of_eigenvectors: int number of eigenvectors to use. Default: None, meaning use all.
     """
 
     anchor = [torch.tensor(a).float() for a in utils.to_list(anchor)]
@@ -78,7 +78,12 @@ def construct_dataset(
 
                 sample_ind, _ = g.furthest_point_sampling(a, spacing=spacing, start_idx=start_idx)
                 sample_ind, _ = torch.sort(sample_ind)  # this will make postprocessing easier
-                a_, v_, l_, m_ = a[sample_ind], v[sample_ind], l[sample_ind], m[sample_ind]
+                a_, v_, l_, m_ = (
+                    a[sample_ind],
+                    v[sample_ind],
+                    l[sample_ind],
+                    m[sample_ind],
+                )
 
                 # fit graph to point cloud
                 edge_index, edge_weight = g.fit_graph(
@@ -115,7 +120,7 @@ def construct_dataset(
         local_gauges=local_gauges,
         n_geodesic_nb=k * frac_geodesic_nb,
         var_explained=var_explained,
-        number_of_eigenvectors=number_of_eigenvectors
+        number_of_eigenvectors=number_of_eigenvectors,
     )
 
 
@@ -124,7 +129,7 @@ def _compute_geometric_objects(
     n_geodesic_nb=10,
     var_explained=0.9,
     local_gauges=False,
-    number_of_eigenvectors=None
+    number_of_eigenvectors=None,
 ):
     """
     Compute geometric objects used later: local gauges, Levi-Civita connections
@@ -135,7 +140,7 @@ def _compute_geometric_objects(
         n_geodesic_nb: number of geodesic neighbours to fit the tangent spaces to
         var_explained: fraction of variance explained by the local gauges
         local_gauges: whether to use local or global gauges
-        number_of_eigenvectors:  integer number of eigenvectors to use. Default: None, meaning use all.
+        number_of_eigenvectors: int number of eigenvectors to use. Default: None, meaning use all.
 
     Returns:
         data: pytorch geometric data object with the following new attributes
@@ -196,9 +201,17 @@ def _compute_geometric_objects(
         Lc = None
 
     if number_of_eigenvectors is None:
-        print("\n---- Computing full spectrum ... (if this takes too long, then run construct_dataset() with number_of_eigenvectors specified) ", end="")
+        print(
+            """\n---- Computing full spectrum ...
+              (if this takes too long, then run construct_dataset()
+              with number_of_eigenvectors specified) """,
+            end="",
+        )
     else:
-        print(f"\n---- Computing spectrum with {number_of_eigenvectors} eigenvectors...", end="")
+        print(
+            f"\n---- Computing spectrum with {number_of_eigenvectors} eigenvectors...",
+            end="",
+        )
     L = g.compute_eigendecomposition(L, k=number_of_eigenvectors)
     Lc = g.compute_eigendecomposition(Lc, k=number_of_eigenvectors)
 

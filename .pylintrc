@@ -2,7 +2,7 @@
 # for some of the options that are available
 
 [MESSAGES CONTROL]
-disable=C0103,R0904,R0903,W0511,R0801,R0401,I0013,W0622,C0325,R0205,W1201,W0621,R0913,R0914,C0415,W0719
+disable=C0103,R0904,R0903,W0511,R0801,R0401,I0013,W0622,C0325,R0205,W1201,W0621,R0913,R0914,C0415,W0719,R0917
 
 [FORMAT]
 # Maximum number of characters on a single line.
@@ -10,7 +10,7 @@ max-line-length=100
 
 [DESIGN]
 # Maximum number of arguments for function / method
-max-args=8
+max-args=15
 # Argument names that match this expression will be ignored. Default to name
 # with leading underscore
 ignored-argument-names=_.*
