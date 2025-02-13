@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -242,14 +242,337 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="plotting-module">
-<h1>Plotting module<a class="headerlink" href="#plotting-module" title="Link to this heading">¶</a></h1>
+          <section id="module-MARBLE.plotting">
+<span id="plotting-module"></span><h1>Plotting module<a class="headerlink" href="#module-MARBLE.plotting" title="Link to this heading">¶</a></h1>
+<p>Plotting module.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.plotting.fields">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.plotting.</span></span><span class="sig-name descname"><span class="pre">fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">titles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(8,</span> <span class="pre">8)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes_visible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_gauges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.005</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#fields"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.fields" title="Link to this definition">¶</a></dt>
+<dd><p>Plot scalar or vector fields</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – PyG Batch data object class created with utils.construct_dataset</p></li>
+<li><p><strong>titles</strong> – list of titles</p></li>
+<li><p><strong>col</strong> – int for number of columns to plot</p></li>
+<li><p><strong>figsize</strong> – tuple of figure dimensions</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.plotting.histograms">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.plotting.</span></span><span class="sig-name descname"><span class="pre">histograms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">titles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(10,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#histograms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.histograms" title="Link to this definition">¶</a></dt>
+<dd><p>Plot histograms of cluster distribution across datasets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – PyG Batch data object class created with utils.construct_dataset</p></li>
+<li><p><strong>clusters</strong> – sklearn cluster object</p></li>
+<li><p><strong>titles</strong> – list of titles</p></li>
+<li><p><strong>col</strong> – int for number of columns to plot</p></li>
+<li><p><strong>figsize</strong> – tuple of figure dimensions</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.plotting.embedding">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.plotting.</span></span><span class="sig-name descname"><span class="pre">embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">titles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes_visible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbar_visible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clusters_visible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'coolwarm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_trajectories</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'o'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_gradient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#embedding"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.embedding" title="Link to this definition">¶</a></dt>
+<dd><p>Plot embeddings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – PyG data object with attribute emb or nxdim matrix of embedded points with dim=2 or 3</p></li>
+<li><p><strong>labels</strong> – list of increasing integer node labels</p></li>
+<li><p><strong>clusters</strong> – sklearn cluster object</p></li>
+<li><p><strong>titles</strong> – list of titles</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.plotting.losses">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.plotting.</span></span><span class="sig-name descname"><span class="pre">losses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#losses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.losses" title="Link to this definition">¶</a></dt>
+<dd><p>Model losses</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.plotting.voronoi">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.plotting.</span></span><span class="sig-name descname"><span class="pre">voronoi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clusters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#voronoi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.voronoi" title="Link to this definition">¶</a></dt>
+<dd><p>Voronoi tesselation of clusters</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.plotting.neighbourhoods">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.plotting.</span></span><span class="sig-name descname"><span class="pre">neighbourhoods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_graph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(15,</span> <span class="pre">20)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.025</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#neighbourhoods"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.neighbourhoods" title="Link to this definition">¶</a></dt>
+<dd><p>For each clustered neighbourhood type, draw one sample neighbourhood from each dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – postprocessed PyG Batch data object class created with utils.construct_dataset</p></li>
+<li><p><strong>hops</strong> – size of neighbourhood in number of hops</p></li>
+<li><p><strong>norm</strong> – if True, then normalise values to zero mean within clusters</p></li>
+<li><p><strong>plot_graph</strong> – if True, then plot the underlying graph.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.plotting.graph">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.plotting.</span></span><span class="sig-name descname"><span class="pre">graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'b'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes_visible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.graph" title="Link to this definition">¶</a></dt>
+<dd><p>Plot scalar values on graph nodes embedded in 2D or 3D.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.plotting.trajectories">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.plotting.</span></span><span class="sig-name descname"><span class="pre">trajectories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'o'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_feature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrow_spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes_visible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#trajectories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.trajectories" title="Link to this definition">¶</a></dt>
+<dd><p>Plot trajectory in phase space. If multiple trajectories are given, they are plotted with
+different colors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>np array</em>) – Positions</p></li>
+<li><p><strong>V</strong> (<em>np array</em>) – Velocities</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib axes object</em>) – If specificed, it will plot on existing axes. Default is None</p></li>
+<li><p><strong>style</strong> (<em>string</em>) – Plotting style. ‘o’ for scatter plot or ‘-’ for line plot</p></li>
+<li><p><strong>node_feature</strong> – Color lines. The default is None</p></li>
+<li><p><strong>lw</strong> (<em>int</em>) – Line width</p></li>
+<li><p><strong>ms</strong> (<em>int</em>) – Marker size</p></li>
+<li><p><strong>scale</strong> (<em>float</em>) – Scaling of arrows</p></li>
+<li><p><strong>arrow_spacing</strong> (<em>int</em>) – How many timesteps apart are the arrows spaced.</p></li>
+<li><p><strong>axes_visible</strong> (<em>bool</em>) – Whether to display axes</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – transparancy of the markers</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib axes object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.plotting.plot_arrows">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_arrows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'k'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#plot_arrows"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.plot_arrows" title="Link to this definition">¶</a></dt>
+<dd><p>Plot arrows.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="MARBLE.plotting.Arrow3D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MARBLE.plotting.</span></span><span class="sig-name descname"><span class="pre">Arrow3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#Arrow3D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.Arrow3D" title="Link to this definition">¶</a></dt>
+<dd><p>Arrow 3D.</p>
+<p>There are two ways for defining an arrow:</p>
+<ul class="simple">
+<li><p>If <em>posA</em> and <em>posB</em> are given, a path connecting two points is
+created according to <em>connectionstyle</em>. The path will be
+clipped with <em>patchA</em> and <em>patchB</em> and further shrunken by
+<em>shrinkA</em> and <em>shrinkB</em>. An arrow is drawn along this
+resulting path using the <em>arrowstyle</em> parameter.</p></li>
+<li><p>Alternatively if <em>path</em> is provided, an arrow is drawn along this
+path and <em>patchA</em>, <em>patchB</em>, <em>shrinkA</em>, and <em>shrinkB</em> are ignored.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>posA</strong> (<em>(</em><em>float</em><em>, </em><em>float</em><em>)</em><em>, </em><em>default: None</em>) – (x, y) coordinates of arrow tail and arrow head respectively.</p></li>
+<li><p><strong>posB</strong> (<em>(</em><em>float</em><em>, </em><em>float</em><em>)</em><em>, </em><em>default: None</em>) – (x, y) coordinates of arrow tail and arrow head respectively.</p></li>
+<li><p><strong>path</strong> (<cite>~matplotlib.path.Path</cite>, default: None) – If provided, an arrow is drawn along this path and <em>patchA</em>,
+<em>patchB</em>, <em>shrinkA</em>, and <em>shrinkB</em> are ignored.</p></li>
+<li><p><strong>arrowstyle</strong> – The <cite>.ArrowStyle</cite> with which the fancy arrow is drawn.  If a
+string, it should be one of the available arrowstyle names, with
+optional comma-separated attributes.  The optional attributes are
+meant to be scaled with the <em>mutation_scale</em>.  The following arrow
+styles are available:</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>connectionstyle<span class="classifier">str or <cite>.ConnectionStyle</cite> or None, optional, default: ‘arc3’</span></dt><dd><p>The <cite>.ConnectionStyle</cite> with which <em>posA</em> and <em>posB</em> are connected.
+If a string, it should be one of the available connectionstyle
+names, with optional comma-separated attributes.  The following
+connection styles are available:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Class</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Attrs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Arc3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">arc3</span></code></p></td>
+<td><p>rad=0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Angle3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">angle3</span></code></p></td>
+<td><p>angleA=90, angleB=0</p></td>
+</tr>
+<tr class="row-even"><td><p>Angle</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">angle</span></code></p></td>
+<td><p>angleA=90, angleB=0, rad=0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Arc</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">arc</span></code></p></td>
+<td><p>angleA=0, angleB=0, armA=None, armB=None, rad=0.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Bar</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bar</span></code></p></td>
+<td><p>armA=0.0, armB=0.0, fraction=0.3, angle=None</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt>patchA, patchB<span class="classifier"><cite>~matplotlib.patches.Patch</cite>, default: None</span></dt><dd><p>Head and tail patches, respectively.</p>
+</dd>
+<dt>shrinkA, shrinkB<span class="classifier">float, default: 2</span></dt><dd><p>Shrink amount, in points, of the tail and head of the arrow respectively.</p>
+</dd>
+<dt>mutation_scale<span class="classifier">float, default: 1</span></dt><dd><p>Value with which attributes of <em>arrowstyle</em> (e.g., <em>head_length</em>)
+will be scaled.</p>
+</dd>
+<dt>mutation_aspect<span class="classifier">None or float, default: None</span></dt><dd><p>The height of the rectangle will be squeezed by this value before
+the mutation and the mutated box will be stretched by the inverse
+of it.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>**kwargs</strong> (<cite>~matplotlib.patches.Patch</cite> properties, optional) – Here is a list of available <cite>.Patch</cite> properties:</p></li>
+<li><p><strong>Properties</strong> – <p>agg_filter: a filter function, which takes a (m, n, 3) float array and a dpi value, and returns a (m, n, 3) array and two offsets from the bottom left corner of the image
+alpha: unknown
+animated: bool
+antialiased or aa: bool or None
+capstyle: <cite>.CapStyle</cite> or {‘butt’, ‘projecting’, ‘round’}
+clip_box: <cite>~matplotlib.transforms.BboxBase</cite> or None
+clip_on: bool
+clip_path: Patch or (Path, Transform) or None
+color: <a href="#id1"><span class="problematic" id="id2">:mpltype:`color`</span></a>
+edgecolor or ec: <a href="#id3"><span class="problematic" id="id4">:mpltype:`color`</span></a> or None
+facecolor or fc: <a href="#id5"><span class="problematic" id="id6">:mpltype:`color`</span></a> or None
+figure: <cite>~matplotlib.figure.Figure</cite> or <cite>~matplotlib.figure.SubFigure</cite>
+fill: bool
+gid: str
+hatch: {‘/’, ‘\’, ‘|’, ‘-’, ‘+’, ‘x’, ‘o’, ‘O’, ‘.’, ‘*’}
+hatch_linewidth: unknown
+in_layout: bool
+joinstyle: <cite>.JoinStyle</cite> or {‘miter’, ‘round’, ‘bevel’}
+label: object
+linestyle or ls: {‘-’, ‘–’, ‘-.’, ‘:’, ‘’, (offset, on-off-seq), …}
+linewidth or lw: float or None
+mouseover: bool
+path_effects: list of <cite>.AbstractPathEffect</cite>
+picker: None or bool or float or callable
+rasterized: bool
+sketch_params: (scale: float, length: float, randomness: float)
+snap: bool or None
+transform: <cite>~matplotlib.transforms.Transform</cite>
+url: str
+visible: bool
+zorder: float</p>
+<p>In contrast to other patches, the default <code class="docutils literal notranslate"><span class="pre">capstyle</span></code> and
+<code class="docutils literal notranslate"><span class="pre">joinstyle</span></code> for <cite>FancyArrowPatch</cite> are set to <code class="docutils literal notranslate"><span class="pre">&quot;round&quot;</span></code>.</p>
+</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.plotting.Arrow3D.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">renderer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#Arrow3D.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.Arrow3D.draw" title="Link to this definition">¶</a></dt>
+<dd><p>draw.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.plotting.Arrow3D.do_3d_projection">
+<span class="sig-name descname"><span class="pre">do_3d_projection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#Arrow3D.do_3d_projection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.Arrow3D.do_3d_projection" title="Link to this definition">¶</a></dt>
+<dd><p>do 3d projection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.plotting.Arrow3D.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agg_filter=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">animated=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">antialiased=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrowstyle=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capstyle=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_box=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_on=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_path=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectionstyle=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgecolor=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facecolor=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gid=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hatch=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hatch_linewidth=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_layout=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joinstyle=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linestyle=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouseover=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mutation_aspect=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mutation_scale=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patchA=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patchB=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_effects=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">picker=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rasterized=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sketch_params=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snap=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visible=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorder=&lt;UNSET&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MARBLE.plotting.Arrow3D.set" title="Link to this definition">¶</a></dt>
+<dd><p>Set multiple properties at once.</p>
+<p>Supported properties are</p>
+<dl class="simple">
+<dt>Properties:</dt><dd><p>agg_filter: a filter function, which takes a (m, n, 3) float array and a dpi value, and returns a (m, n, 3) array and two offsets from the bottom left corner of the image
+alpha: scalar or None
+animated: bool
+antialiased or aa: bool or None
+arrowstyle: [ ‘-’ | ‘&lt;-’ | ‘-&gt;’ | ‘&lt;-&gt;’ | ‘&lt;<a href="#id13"><span class="problematic" id="id14">|-' | '-|</span></a>&gt;’ | ‘&lt;<a href="#id15"><span class="problematic" id="id16">|-|</span></a>&gt;’ | ‘]-’ | ‘-[’ | ‘]-[’ | ‘<a href="#id17"><span class="problematic" id="id18">|-|</span></a>’ | ‘]-&gt;’ | ‘&lt;-[’ | ‘simple’ | ‘fancy’ | ‘wedge’ ]
+capstyle: <cite>.CapStyle</cite> or {‘butt’, ‘projecting’, ‘round’}
+clip_box: <cite>~matplotlib.transforms.BboxBase</cite> or None
+clip_on: bool
+clip_path: Patch or (Path, Transform) or None
+color: <a href="#id7"><span class="problematic" id="id8">:mpltype:`color`</span></a>
+connectionstyle: [ ‘arc3’ | ‘angle3’ | ‘angle’ | ‘arc’ | ‘bar’ ]
+edgecolor or ec: <a href="#id9"><span class="problematic" id="id10">:mpltype:`color`</span></a> or None
+facecolor or fc: <a href="#id11"><span class="problematic" id="id12">:mpltype:`color`</span></a> or None
+figure: <cite>~matplotlib.figure.Figure</cite> or <cite>~matplotlib.figure.SubFigure</cite>
+fill: bool
+gid: str
+hatch: {‘/’, ‘\’, ‘|’, ‘-’, ‘+’, ‘x’, ‘o’, ‘O’, ‘.’, ‘*’}
+hatch_linewidth: unknown
+in_layout: bool
+joinstyle: <cite>.JoinStyle</cite> or {‘miter’, ‘round’, ‘bevel’}
+label: object
+linestyle or ls: {‘-’, ‘–’, ‘-.’, ‘:’, ‘’, (offset, on-off-seq), …}
+linewidth or lw: float or None
+mouseover: bool
+mutation_aspect: float
+mutation_scale: float
+patchA: <cite>.patches.Patch</cite>
+patchB: <cite>.patches.Patch</cite>
+path_effects: list of <cite>.AbstractPathEffect</cite>
+picker: None or bool or float or callable
+positions: unknown
+rasterized: bool
+sketch_params: (scale: float, length: float, randomness: float)
+snap: bool or None
+transform: <cite>~matplotlib.transforms.Transform</cite>
+url: str
+visible: bool
+zorder: float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.plotting.create_axis">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.plotting.</span></span><span class="sig-name descname"><span class="pre">create_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#create_axis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.create_axis" title="Link to this definition">¶</a></dt>
+<dd><p>Create axis.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.plotting.get_limits">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.plotting.</span></span><span class="sig-name descname"><span class="pre">get_limits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#get_limits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.get_limits" title="Link to this definition">¶</a></dt>
+<dd><p>Get limits.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.plotting.set_axes">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.plotting.</span></span><span class="sig-name descname"><span class="pre">set_axes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes_visible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#set_axes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.set_axes" title="Link to this definition">¶</a></dt>
+<dd><p>Set axes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.plotting.set_colors">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.plotting.</span></span><span class="sig-name descname"><span class="pre">set_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'coolwarm'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/plotting.html#set_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.plotting.set_colors" title="Link to this definition">¶</a></dt>
+<dd><p>Set colors.</p>
+</dd></dl>
+
 </section>
 
         </article>
@@ -295,8 +618,45 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Plotting module</a><ul>
+<li><a class="reference internal" href="#MARBLE.plotting.fields"><code class="docutils literal notranslate"><span class="pre">fields()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.plotting.histograms"><code class="docutils literal notranslate"><span class="pre">histograms()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.plotting.embedding"><code class="docutils literal notranslate"><span class="pre">embedding()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.plotting.losses"><code class="docutils literal notranslate"><span class="pre">losses()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.plotting.voronoi"><code class="docutils literal notranslate"><span class="pre">voronoi()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.plotting.neighbourhoods"><code class="docutils literal notranslate"><span class="pre">neighbourhoods()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.plotting.graph"><code class="docutils literal notranslate"><span class="pre">graph()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.plotting.trajectories"><code class="docutils literal notranslate"><span class="pre">trajectories()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.plotting.plot_arrows"><code class="docutils literal notranslate"><span class="pre">plot_arrows()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.plotting.Arrow3D"><code class="docutils literal notranslate"><span class="pre">Arrow3D</span></code></a><ul>
+<li><a class="reference internal" href="#MARBLE.plotting.Arrow3D.draw"><code class="docutils literal notranslate"><span class="pre">Arrow3D.draw()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.plotting.Arrow3D.do_3d_projection"><code class="docutils literal notranslate"><span class="pre">Arrow3D.do_3d_projection()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.plotting.Arrow3D.set"><code class="docutils literal notranslate"><span class="pre">Arrow3D.set()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MARBLE.plotting.create_axis"><code class="docutils literal notranslate"><span class="pre">create_axis()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.plotting.get_limits"><code class="docutils literal notranslate"><span class="pre">get_limits()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.plotting.set_axes"><code class="docutils literal notranslate"><span class="pre">set_axes()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.plotting.set_colors"><code class="docutils literal notranslate"><span class="pre">set_colors()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

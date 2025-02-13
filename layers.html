@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -242,14 +242,72 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="layers-module">
-<h1>Layers module<a class="headerlink" href="#layers-module" title="Link to this heading">¶</a></h1>
+          <section id="module-MARBLE.layers">
+<span id="layers-module"></span><h1>Layers module<a class="headerlink" href="#module-MARBLE.layers" title="Link to this heading">¶</a></h1>
+<p>Layer module.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="MARBLE.layers.Diffusion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MARBLE.layers.</span></span><span class="sig-name descname"><span class="pre">Diffusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/layers.html#Diffusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.layers.Diffusion" title="Link to this definition">¶</a></dt>
+<dd><p>Diffusion with learned t.</p>
+<p>initialise.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.layers.Diffusion.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Lc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spectral'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/layers.html#Diffusion.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.layers.Diffusion.forward" title="Link to this definition">¶</a></dt>
+<dd><p>Forward.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="MARBLE.layers.AnisoConv">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MARBLE.layers.</span></span><span class="sig-name descname"><span class="pre">AnisoConv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/layers.html#AnisoConv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.layers.AnisoConv" title="Link to this definition">¶</a></dt>
+<dd><p>Anisotropic Convolution</p>
+<p>Initialize.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.layers.AnisoConv.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/layers.html#AnisoConv.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.layers.AnisoConv.forward" title="Link to this definition">¶</a></dt>
+<dd><p>Forward.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.layers.AnisoConv.message_and_aggregate">
+<span class="sig-name descname"><span class="pre">message_and_aggregate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K_t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/layers.html#AnisoConv.message_and_aggregate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.layers.AnisoConv.message_and_aggregate" title="Link to this definition">¶</a></dt>
+<dd><p>Message passing step. If K_t is a txs matrix (s sources, t targets),
+do matrix multiplication K_t&#64;x, broadcasting over column features.
+If K_t is a t*dimxs*dim matrix, in case of manifold computations,
+then first reshape, assuming that the columns of x are ordered as
+[dx1/du, x1/dv, …, dx2/du, dx2/dv, …].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="MARBLE.layers.InnerProductFeatures">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MARBLE.layers.</span></span><span class="sig-name descname"><span class="pre">InnerProductFeatures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/layers.html#InnerProductFeatures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.layers.InnerProductFeatures" title="Link to this definition">¶</a></dt>
+<dd><p>Compute scaled inner-products between channel vectors.</p>
+<p>Input: (V x C*D) vector of (V x n_i) list of vectors with sum_in_i = C*D
+Output: (VxC) dot products</p>
+<p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.layers.InnerProductFeatures.reset_parameters">
+<span class="sig-name descname"><span class="pre">reset_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/layers.html#InnerProductFeatures.reset_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.layers.InnerProductFeatures.reset_parameters" title="Link to this definition">¶</a></dt>
+<dd><p>Reset parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.layers.InnerProductFeatures.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/layers.html#InnerProductFeatures.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.layers.InnerProductFeatures.forward" title="Link to this definition">¶</a></dt>
+<dd><p>Forward.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
         </article>
@@ -295,8 +353,40 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Layers module</a><ul>
+<li><a class="reference internal" href="#MARBLE.layers.Diffusion"><code class="docutils literal notranslate"><span class="pre">Diffusion</span></code></a><ul>
+<li><a class="reference internal" href="#MARBLE.layers.Diffusion.forward"><code class="docutils literal notranslate"><span class="pre">Diffusion.forward()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MARBLE.layers.AnisoConv"><code class="docutils literal notranslate"><span class="pre">AnisoConv</span></code></a><ul>
+<li><a class="reference internal" href="#MARBLE.layers.AnisoConv.forward"><code class="docutils literal notranslate"><span class="pre">AnisoConv.forward()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.layers.AnisoConv.message_and_aggregate"><code class="docutils literal notranslate"><span class="pre">AnisoConv.message_and_aggregate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MARBLE.layers.InnerProductFeatures"><code class="docutils literal notranslate"><span class="pre">InnerProductFeatures</span></code></a><ul>
+<li><a class="reference internal" href="#MARBLE.layers.InnerProductFeatures.reset_parameters"><code class="docutils literal notranslate"><span class="pre">InnerProductFeatures.reset_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.layers.InnerProductFeatures.forward"><code class="docutils literal notranslate"><span class="pre">InnerProductFeatures.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

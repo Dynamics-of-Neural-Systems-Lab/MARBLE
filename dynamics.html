@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -242,14 +242,151 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="dynamics-module">
-<h1>Dynamics module<a class="headerlink" href="#dynamics-module" title="Link to this heading">¶</a></h1>
+          <section id="module-MARBLE.dynamics">
+<span id="dynamics-module"></span><h1>Dynamics module<a class="headerlink" href="#module-MARBLE.dynamics" title="Link to this heading">¶</a></h1>
+<p>Dynamics module, adapted from DE_library.</p>
+<p>TODO: clean this up</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.dynamics.fun_vanderpol">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.dynamics.</span></span><span class="sig-name descname"><span class="pre">fun_vanderpol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">par</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/dynamics.html#fun_vanderpol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.dynamics.fun_vanderpol" title="Link to this definition">¶</a></dt>
+<dd><p>Van der parol oscillator exhibiting a degenerate Hopf bifurcation</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.dynamics.load_ODE">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.dynamics.</span></span><span class="sig-name descname"><span class="pre">load_ODE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">whichmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">par</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/dynamics.html#load_ODE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.dynamics.load_ODE" title="Link to this definition">¶</a></dt>
+<dd><p>Load ODE system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>whichmodel</strong> (<em>string</em>) – ODE system from ODE_library.py</p></li>
+<li><p><strong>par</strong> (<em>dict</em><em>, </em><em>optional</em>) – parameters. The default is None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ODE function
+jac (Callable): Jacobian</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>f (Callable)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.dynamics.solve_ODE">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.dynamics.</span></span><span class="sig-name descname"><span class="pre">solve_ODE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'standard'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/dynamics.html#solve_ODE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.dynamics.solve_ODE" title="Link to this definition">¶</a></dt>
+<dd><p>Solve ODE.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.dynamics.addnoise">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.dynamics.</span></span><span class="sig-name descname"><span class="pre">addnoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">noise_pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/dynamics.html#addnoise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.dynamics.addnoise" title="Link to this definition">¶</a></dt>
+<dd><p>Add noise to trajectories.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>numpy array</em>) – Trajectories</p></li>
+<li><p><strong>noise_pars</strong> – additional keyword argument to specify noise parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>X (len(t)xlen(X0) numpy array) Trajectory</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.dynamics.simulate_ODE">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.dynamics.</span></span><span class="sig-name descname"><span class="pre">simulate_ODE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">whichmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">par</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">noise_pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/dynamics.html#simulate_ODE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.dynamics.simulate_ODE" title="Link to this definition">¶</a></dt>
+<dd><p>Load ODE functions and run appropriate solver.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>whichmodel</strong> (<em>string</em>) – ODE system from ODE_library.py</p></li>
+<li><p><strong>t</strong> (<em>array</em><em> or </em><em>list</em>) – Time steps to evaluate system at</p></li>
+<li><p><strong>x0</strong> (<em>array</em><em> or </em><em>list</em>) – Initial condition. Size must match the dimension of the ODE system</p></li>
+<li><p><strong>par</strong> (<em>dict</em><em>, </em><em>optional</em>) – Parameters. The default is None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Solution
+Xprime (list): Time derivative of solution</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>X (list)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.dynamics.simulate_trajectories">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.dynamics.</span></span><span class="sig-name descname"><span class="pre">simulate_trajectories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">whichmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X0_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">par</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">noise_pars</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/dynamics.html#simulate_trajectories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.dynamics.simulate_trajectories" title="Link to this definition">¶</a></dt>
+<dd><p>Compute a number of trajectories from the given initial conditions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>simulate_ODE</strong><strong>(</strong><strong>)</strong> (<em>Same as in</em>)</p></li>
+<li><p><strong>except</strong></p></li>
+<li><p><strong>whichmodel</strong> (<em>string</em>) – ODE system from ODE_library.py</p></li>
+<li><p><strong>X0_range</strong> (<em>list</em><em>(</em><em>list</em><em>)</em>) – List of initial conditions</p></li>
+<li><p><strong>t</strong> (<em>array</em><em> or </em><em>list</em>) – Time steps to evaluate system at</p></li>
+<li><p><strong>par</strong> (<em>dict</em><em>, </em><em>optional</em>) – Parameters. The default is None</p></li>
+<li><p><strong>noise_pars</strong> – additional keyword argument to specify noise parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Solution for all trajectories
+Xprime_list (list): Time derivative of solution for all trajectories</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>X_list (list(list))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.dynamics.reject_outliers">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.dynamics.</span></span><span class="sig-name descname"><span class="pre">reject_outliers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/dynamics.html#reject_outliers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.dynamics.reject_outliers" title="Link to this definition">¶</a></dt>
+<dd><p>Reject outliers.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.dynamics.parabola">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.dynamics.</span></span><span class="sig-name descname"><span class="pre">parabola</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/dynamics.html#parabola"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.dynamics.parabola" title="Link to this definition">¶</a></dt>
+<dd><p>Parabola.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.dynamics.embed_parabola">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.dynamics.</span></span><span class="sig-name descname"><span class="pre">embed_parabola</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/dynamics.html#embed_parabola"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.dynamics.embed_parabola" title="Link to this definition">¶</a></dt>
+<dd><p>Embed on parabola.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.dynamics.sample_2d">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.dynamics.</span></span><span class="sig-name descname"><span class="pre">sample_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'uniform'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/dynamics.html#sample_2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.dynamics.sample_2d" title="Link to this definition">¶</a></dt>
+<dd><p>Sample N points in a 2D area.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.dynamics.initial_conditions">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.dynamics.</span></span><span class="sig-name descname"><span class="pre">initial_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/dynamics.html#initial_conditions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.dynamics.initial_conditions" title="Link to this definition">¶</a></dt>
+<dd><p>Generate iniital condition.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.dynamics.simulate_vanderpol">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.dynamics.</span></span><span class="sig-name descname"><span class="pre">simulate_vanderpol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/dynamics.html#simulate_vanderpol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.dynamics.simulate_vanderpol" title="Link to this definition">¶</a></dt>
+<dd><p>Simulate vanderpol.</p>
+</dd></dl>
+
 </section>
 
         </article>
@@ -287,8 +424,38 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Dynamics module</a><ul>
+<li><a class="reference internal" href="#MARBLE.dynamics.fun_vanderpol"><code class="docutils literal notranslate"><span class="pre">fun_vanderpol()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.dynamics.load_ODE"><code class="docutils literal notranslate"><span class="pre">load_ODE()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.dynamics.solve_ODE"><code class="docutils literal notranslate"><span class="pre">solve_ODE()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.dynamics.addnoise"><code class="docutils literal notranslate"><span class="pre">addnoise()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.dynamics.simulate_ODE"><code class="docutils literal notranslate"><span class="pre">simulate_ODE()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.dynamics.simulate_trajectories"><code class="docutils literal notranslate"><span class="pre">simulate_trajectories()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.dynamics.reject_outliers"><code class="docutils literal notranslate"><span class="pre">reject_outliers()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.dynamics.parabola"><code class="docutils literal notranslate"><span class="pre">parabola()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.dynamics.embed_parabola"><code class="docutils literal notranslate"><span class="pre">embed_parabola()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.dynamics.sample_2d"><code class="docutils literal notranslate"><span class="pre">sample_2d()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.dynamics.initial_conditions"><code class="docutils literal notranslate"><span class="pre">initial_conditions()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.dynamics.simulate_vanderpol"><code class="docutils literal notranslate"><span class="pre">simulate_vanderpol()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

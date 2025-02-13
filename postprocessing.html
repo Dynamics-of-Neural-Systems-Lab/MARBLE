@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -242,14 +242,57 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="postprocessing-module">
-<h1>Postprocessing module<a class="headerlink" href="#postprocessing-module" title="Link to this heading">¶</a></h1>
+          <section id="module-MARBLE.postprocessing">
+<span id="postprocessing-module"></span><h1>Postprocessing module<a class="headerlink" href="#module-MARBLE.postprocessing" title="Link to this heading">¶</a></h1>
+<p>Postprocessing module.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.postprocessing.cluster">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.postprocessing.</span></span><span class="sig-name descname"><span class="pre">cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_typ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kmeans'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/postprocessing.html#cluster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.postprocessing.cluster" title="Link to this definition">¶</a></dt>
+<dd><p>Cluster data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.postprocessing.distribution_distances">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.postprocessing.</span></span><span class="sig-name descname"><span class="pre">distribution_distances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_typ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kmeans'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/postprocessing.html#distribution_distances"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.postprocessing.distribution_distances" title="Link to this definition">¶</a></dt>
+<dd><p>Return distance between datasets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>PyG data object containing .out attribute, a nx2 matrix of embedded data
+clusters: sklearn cluster object
+dist (cxc matrix): pairwise distances where c is the number of clusters</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.postprocessing.embed_in_2D">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.postprocessing.</span></span><span class="sig-name descname"><span class="pre">embed_in_2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">embed_typ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'umap'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manifold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/postprocessing.html#embed_in_2D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.postprocessing.embed_in_2D" title="Link to this definition">¶</a></dt>
+<dd><p>Embed into 2D via for visualisation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – PyG input data</p></li>
+<li><p><strong>embed_typl</strong> (<em>string</em><em>, </em><em>optional</em>) – Embedding algorithm to use (tsne, umap, PCA)</p></li>
+<li><p><strong>manifold</strong> (<em>sklearn object</em><em>, </em><em>optional</em>) – Manifold object returned by some embedding algorithms
+(PCA, umap). Useful when trying to compare datasets.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – Random seed. The default is 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>PyG data object containing emb_2D attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
         </article>
@@ -295,8 +338,29 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Postprocessing module</a><ul>
+<li><a class="reference internal" href="#MARBLE.postprocessing.cluster"><code class="docutils literal notranslate"><span class="pre">cluster()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.postprocessing.distribution_distances"><code class="docutils literal notranslate"><span class="pre">distribution_distances()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.postprocessing.embed_in_2D"><code class="docutils literal notranslate"><span class="pre">embed_in_2D()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

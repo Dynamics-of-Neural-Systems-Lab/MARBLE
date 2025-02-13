@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Postprocessing module" href="postprocessing.html" /><link rel="prev" title="MARBLE - Manifold Representation Basis Learning" href="index.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Postprocessing module" href="postprocessing.html" /><link rel="prev" title="MARBLE - MAnifold Representation Basis LEarning" href="index.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>MARBLE module - MARBLE documentation</title>
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -242,14 +242,170 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="marble-module">
-<h1>MARBLE module<a class="headerlink" href="#marble-module" title="Link to this heading">¶</a></h1>
+          <section id="module-MARBLE.main">
+<span id="marble-module"></span><h1>MARBLE module<a class="headerlink" href="#module-MARBLE.main" title="Link to this heading">¶</a></h1>
+<p>Main network</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="MARBLE.main.net">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MARBLE.main.</span></span><span class="sig-name descname"><span class="pre">net</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loadpath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#net"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.net" title="Link to this definition">¶</a></dt>
+<dd><p>MARBLE neural network.</p>
+<p>The possible parameters and their default values are described below,
+and can be accessed via the <cite>params</cite> dictionnary in this class constructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>batch_size</strong> – batch size (default=64)</p></li>
+<li><p><strong>epochs</strong> – optimisation epochs (default=20)</p></li>
+<li><p><strong>lr</strong> – iniital learning rate (default=0.01)</p></li>
+<li><p><strong>momentum</strong> – momentum (default=0.9)</p></li>
+<li><p><strong>diffusion</strong> – set to True to use diffusion layer before gradient computation (default=False)</p></li>
+<li><p><strong>include_positions</strong> – include positions as features (warning: this is untested) (default=False)</p></li>
+<li><p><strong>include_self</strong> – include vector at the center of feature (default=True)</p></li>
+<li><p><strong>order</strong> – order to which to compute the directional derivatives (default=2)</p></li>
+<li><p><strong>inner_product_features</strong> – transform gradient features to inner product features (default=True)</p></li>
+<li><p><strong>frac_sampled_nb</strong> – fraction of neighbours to sample for gradient computation
+(if -1 then all neighbours) (default=-1)</p></li>
+<li><p><strong>dropout</strong> – dropout in the MLP (default=0.)</p></li>
+<li><p><strong>hidden_channels</strong> – number of hidden channels (default=16). If list, then adds multiple layers.</p></li>
+<li><p><strong>out_channels</strong> – number of output channels (if null, then =hidden_channels) (default=3)</p></li>
+<li><p><strong>bias</strong> – learn bias parameters in MLP (default=True)</p></li>
+<li><p><strong>vec_norm</strong> – normalise features at each derivative order to unit length (default=False)</p></li>
+<li><p><strong>emb_norm</strong> – normalise MLP output to unit length (default=False)</p></li>
+<li><p><strong>batch_norm</strong> – batch normalisation (default=True)</p></li>
+<li><p><strong>seed</strong> – seed for reproducibility</p></li>
+</ul>
+</dd>
+</dl>
+<p>Constructor of the MARBLE net.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – PyG data</p></li>
+<li><p><strong>loadpath</strong> – path to a model file, or a directory with models (best model will be used)</p></li>
+<li><p><strong>params</strong> – dict with parameters to overwrite default params or a path to a yaml file</p></li>
+<li><p><strong>verbose</strong> – run in verbose mode</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.main.net.parse_parameters">
+<span class="sig-name descname"><span class="pre">parse_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#net.parse_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.net.parse_parameters" title="Link to this definition">¶</a></dt>
+<dd><p>Load default parameters and merge with user specified parameters</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.main.net.check_parameters">
+<span class="sig-name descname"><span class="pre">check_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#net.check_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.net.check_parameters" title="Link to this definition">¶</a></dt>
+<dd><p>Check parameter validity</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.main.net.reset_parameters">
+<span class="sig-name descname"><span class="pre">reset_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#net.reset_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.net.reset_parameters" title="Link to this definition">¶</a></dt>
+<dd><p>reset parmaeters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.main.net.setup_layers">
+<span class="sig-name descname"><span class="pre">setup_layers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#net.setup_layers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.net.setup_layers" title="Link to this definition">¶</a></dt>
+<dd><p>Setup layers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.main.net.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#net.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.net.forward" title="Link to this definition">¶</a></dt>
+<dd><p>Forward pass.
+Messages are passed to a set target nodes (current batch) from source
+nodes. The source nodes and target nodes form a bipartite graph to
+simplify message passing. By convention, the first size[1] entries of x
+are the target nodes, i.e, x = concat[x_target, x_other].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.main.net.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#net.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.net.evaluate" title="Link to this definition">¶</a></dt>
+<dd><p>Evaluate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.main.net.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#net.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.net.transform" title="Link to this definition">¶</a></dt>
+<dd><p>Forward pass &#64; evaluation (no minibatches)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.main.net.batch_loss">
+<span class="sig-name descname"><span class="pre">batch_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#net.batch_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.net.batch_loss" title="Link to this definition">¶</a></dt>
+<dd><p>Loop over minibatches provided by loader function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – (nxdim) feature matrix</p></li>
+<li><p><strong>loader</strong> – dataloader object from dataloader.py</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.main.net.run_training">
+<span class="sig-name descname"><span class="pre">run_training</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#net.run_training"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.net.run_training" title="Link to this definition">¶</a></dt>
+<dd><p>Run training.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.main.net.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#net.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.net.fit" title="Link to this definition">¶</a></dt>
+<dd><p>Network training.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – PyG data</p></li>
+<li><p><strong>outdir</strong> – folder to save intermediate models</p></li>
+<li><p><strong>verbose</strong> – run in verbose mode</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.main.net.load_model">
+<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loadpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#net.load_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.net.load_model" title="Link to this definition">¶</a></dt>
+<dd><p>Load model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>loadpath</strong> – directory with models to load best model, or specific model path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.main.net.save_model">
+<span class="sig-name descname"><span class="pre">save_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">losses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#net.save_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.net.save_model" title="Link to this definition">¶</a></dt>
+<dd><p>Save model.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="MARBLE.main.loss_fun">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MARBLE.main.</span></span><span class="sig-name descname"><span class="pre">loss_fun</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#loss_fun"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.loss_fun" title="Link to this definition">¶</a></dt>
+<dd><p>Loss function.</p>
+<p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.main.loss_fun.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/main.html#loss_fun.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.main.loss_fun.forward" title="Link to this definition">¶</a></dt>
+<dd><p>forward.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
         </article>
@@ -295,8 +451,45 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">MARBLE module</a><ul>
+<li><a class="reference internal" href="#MARBLE.main.net"><code class="docutils literal notranslate"><span class="pre">net</span></code></a><ul>
+<li><a class="reference internal" href="#MARBLE.main.net.parse_parameters"><code class="docutils literal notranslate"><span class="pre">net.parse_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.main.net.check_parameters"><code class="docutils literal notranslate"><span class="pre">net.check_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.main.net.reset_parameters"><code class="docutils literal notranslate"><span class="pre">net.reset_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.main.net.setup_layers"><code class="docutils literal notranslate"><span class="pre">net.setup_layers()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.main.net.forward"><code class="docutils literal notranslate"><span class="pre">net.forward()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.main.net.evaluate"><code class="docutils literal notranslate"><span class="pre">net.evaluate()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.main.net.transform"><code class="docutils literal notranslate"><span class="pre">net.transform()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.main.net.batch_loss"><code class="docutils literal notranslate"><span class="pre">net.batch_loss()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.main.net.run_training"><code class="docutils literal notranslate"><span class="pre">net.run_training()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.main.net.fit"><code class="docutils literal notranslate"><span class="pre">net.fit()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.main.net.load_model"><code class="docutils literal notranslate"><span class="pre">net.load_model()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.main.net.save_model"><code class="docutils literal notranslate"><span class="pre">net.save_model()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MARBLE.main.loss_fun"><code class="docutils literal notranslate"><span class="pre">loss_fun</span></code></a><ul>
+<li><a class="reference internal" href="#MARBLE.main.loss_fun.forward"><code class="docutils literal notranslate"><span class="pre">loss_fun.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

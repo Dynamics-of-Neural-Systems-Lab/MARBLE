@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -242,14 +242,305 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="geometry-module">
-<h1>Geometry module<a class="headerlink" href="#geometry-module" title="Link to this heading">¶</a></h1>
+          <section id="module-MARBLE.geometry">
+<span id="geometry-module"></span><h1>Geometry module<a class="headerlink" href="#module-MARBLE.geometry" title="Link to this heading">¶</a></h1>
+<p>Geometry module.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.furthest_point_sampling">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">furthest_point_sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#furthest_point_sampling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.furthest_point_sampling" title="Link to this definition">¶</a></dt>
+<dd><p>A greedy O(N^2) algorithm to do furthest points sampling</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>nxdim matrix</em>) – input data</p></li>
+<li><p><strong>N</strong> (<em>int</em>) – number of sampled points</p></li>
+<li><p><strong>stop_crit</strong> – when reaching this fraction of the total manifold diameter, we stop sampling</p></li>
+<li><p><strong>start_idx</strong> – index of starting node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>node indices of the N sampled points
+lambdas: list of distances of furthest points</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>perm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.cluster">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_typ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kmeans'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#cluster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.cluster" title="Link to this definition">¶</a></dt>
+<dd><p>Cluster data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>nxdim matrix</em>)</p></li>
+<li><p><strong>cluster_typ</strong> – Clustering method.</p></li>
+<li><p><strong>n_clusters</strong> – Number of clusters.</p></li>
+<li><p><strong>seed</strong> – seed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>sklearn cluster object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>clusters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.embed">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">embed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">embed_typ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'umap'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_emb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manifold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#embed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.embed" title="Link to this definition">¶</a></dt>
+<dd><p>Embed data to 2D space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>nxdim matrix</em>) – data</p></li>
+<li><p><strong>embed_typ</strong> – embedding method. The default is ‘tsne’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>embedded data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>emb (nx2 matrix)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.relabel_by_proximity">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">relabel_by_proximity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clusters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#relabel_by_proximity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.relabel_by_proximity" title="Link to this definition">¶</a></dt>
+<dd><p>Update clusters labels such that nearby clusters in the embedding get similar labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>clusters</strong> – sklearn object containing ‘centroids’, ‘n_clusters’, ‘labels’ as attributes</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>sklearn object with updated labels</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>clusters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.compute_distribution_distances">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">compute_distribution_distances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#compute_distribution_distances"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.compute_distribution_distances" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the distance between clustered distributions across datasets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>clusters</strong> – sklearn object containing ‘centroids’, ‘slices’, ‘labels’ as attributes</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>distance matrix
+gamma: optimal transport matrix
+centroid_distances: distances between cluster centroids</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dist</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.neighbour_vectors">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">neighbour_vectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#neighbour_vectors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.neighbour_vectors" title="Link to this definition">¶</a></dt>
+<dd><p>Local out-going edge vectors around each node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos</strong> (<em>nxdim matrix</em>) – node positions</p></li>
+<li><p><strong>edge_index</strong> (<em>2xE matrix</em>) – edge indices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>neighbourhood vectors.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nvec (Exdim matrix)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.project_gauge_to_neighbours">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">project_gauge_to_neighbours</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nvec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gauges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#project_gauge_to_neighbours"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.project_gauge_to_neighbours" title="Link to this definition">¶</a></dt>
+<dd><p>Project the gauge vectors to local edge vectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nvec</strong> (<em>Exdim matrix</em>) – neighbourhood vectors</p></li>
+<li><p><strong>local_gauge</strong> (<em>dimxnxdim torch tensor</em>) – if None, global gauge is generated</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of (nxn) torch tensors of projected components</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.gradient_op">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">gradient_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gauges</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#gradient_op"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.gradient_op" title="Link to this definition">¶</a></dt>
+<dd><p>Directional derivative kernel from Beaini et al. 2021.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos</strong> (<em>nxdim Matrix</em>)</p></li>
+<li><p><strong>edge_index</strong> (<em>2x</em><em>|</em><em>E</em><em>| </em><em>matrix</em>)</p></li>
+<li><p><strong>gauge</strong> (<em>list</em>) – orthonormal unit vectors</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of (nxn) Anisotropic kernels</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.normalize_sparse_matrix">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">normalize_sparse_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sp_tensor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#normalize_sparse_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.normalize_sparse_matrix" title="Link to this definition">¶</a></dt>
+<dd><p>Normalize sparse matrix.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.global_to_local_frame">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">global_to_local_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gauges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_correction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#global_to_local_frame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.global_to_local_frame" title="Link to this definition">¶</a></dt>
+<dd><p>Transform signal into local coordinates.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.project_to_gauges">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">project_to_gauges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gauges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#project_to_gauges"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.project_to_gauges" title="Link to this definition">¶</a></dt>
+<dd><p>Project to gauges.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.manifold_dimension">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">manifold_dimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_explained</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#manifold_dimension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.manifold_dimension" title="Link to this definition">¶</a></dt>
+<dd><p>Estimate manifold dimension based on singular vectors</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.fit_graph">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">fit_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cknn'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">par</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'euclidean'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#fit_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.fit_graph" title="Link to this definition">¶</a></dt>
+<dd><p>Fit graph to node positions</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.is_connected">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">is_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#is_connected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.is_connected" title="Link to this definition">¶</a></dt>
+<dd><p>Check if it is connected.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.compute_laplacian">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">compute_laplacian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rw'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#compute_laplacian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.compute_laplacian" title="Link to this definition">¶</a></dt>
+<dd><p>Compute Laplacian.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.compute_connection_laplacian">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">compute_connection_laplacian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rw'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#compute_connection_laplacian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.compute_connection_laplacian" title="Link to this definition">¶</a></dt>
+<dd><p>Connection Laplacian</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – Pytorch geometric data object.</p></li>
+<li><p><strong>R</strong> (<em>nxnxdxd</em>) – Connection matrices between all pairs of nodes. Default is None,
+in case of a global coordinate system.</p></li>
+<li><p><strong>normalization</strong> – <p>None, ‘rw’
+1. None: No normalization
+<span class="math notranslate nohighlight">\(\mathbf{L} = \mathbf{D} - \mathbf{A}\)</span></p>
+<p>2. “rw”<cite>: Random-walk normalization
+:math:</cite>mathbf{L} = mathbf{I} - mathbf{D}^{-1} mathbf{A}`</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ndxnd normalised connection Laplacian matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.compute_gauges">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">compute_gauges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_man</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_geodesic_nb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#compute_gauges"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.compute_gauges" title="Link to this definition">¶</a></dt>
+<dd><p>Orthonormal gauges for the tangent space at each node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – Pytorch geometric data object.</p></li>
+<li><p><strong>n_geodesic_nb</strong> – number of geodesic neighbours. The default is 10.</p></li>
+<li><p><strong>processes</strong> – number of CPUs to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Matrix containing dim unit vectors for each node.
+Sigma: Singular valued</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gauges (nxdimxdim matrix)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.compute_connections">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">compute_connections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gauges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#compute_connections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.compute_connections" title="Link to this definition">¶</a></dt>
+<dd><p>Find smallest rotations R between gauges pairs. It is assumed that the first
+row of edge_index is what we want to align to, i.e.,
+gauges(i) = gauges(j)&#64;R[i,j].T</p>
+<p>R[i,j] is optimal rotation that minimises ||X - RY||_F computed by SVD:
+X, Y = gauges[i].T, gauges[j].T
+U, _, Vt = scipy.linalg.svd(X.T&#64;Y)
+R[i,j] = <a class="reference external" href="mailto:U&#37;&#52;&#48;Vt">U<span>&#64;</span>Vt</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – Pytorch geometric data object</p></li>
+<li><p><strong>gauges</strong> (<em>nxdxd matrix</em>) – Orthogonal unit vectors for each node</p></li>
+<li><p><strong>processes</strong> – number of CPUs to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(n*dim,n*dim) matrix of rotation matrices</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.geometry.compute_eigendecomposition">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.geometry.</span></span><span class="sig-name descname"><span class="pre">compute_eigendecomposition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/geometry.html#compute_eigendecomposition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.geometry.compute_eigendecomposition" title="Link to this definition">¶</a></dt>
+<dd><p>Eigendecomposition of a square matrix A.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> – square matrix A</p></li>
+<li><p><strong>k</strong> – number of eigenvectors</p></li>
+<li><p><strong>eps</strong> – small error term</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>eigenvalues of the Laplacian
+evecs (V,k): matrix of eigenvectors of the Laplacian</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>evals (k)</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
         </article>
@@ -295,8 +586,45 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Geometry module</a><ul>
+<li><a class="reference internal" href="#MARBLE.geometry.furthest_point_sampling"><code class="docutils literal notranslate"><span class="pre">furthest_point_sampling()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.cluster"><code class="docutils literal notranslate"><span class="pre">cluster()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.embed"><code class="docutils literal notranslate"><span class="pre">embed()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.relabel_by_proximity"><code class="docutils literal notranslate"><span class="pre">relabel_by_proximity()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.compute_distribution_distances"><code class="docutils literal notranslate"><span class="pre">compute_distribution_distances()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.neighbour_vectors"><code class="docutils literal notranslate"><span class="pre">neighbour_vectors()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.project_gauge_to_neighbours"><code class="docutils literal notranslate"><span class="pre">project_gauge_to_neighbours()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.gradient_op"><code class="docutils literal notranslate"><span class="pre">gradient_op()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.normalize_sparse_matrix"><code class="docutils literal notranslate"><span class="pre">normalize_sparse_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.global_to_local_frame"><code class="docutils literal notranslate"><span class="pre">global_to_local_frame()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.project_to_gauges"><code class="docutils literal notranslate"><span class="pre">project_to_gauges()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.manifold_dimension"><code class="docutils literal notranslate"><span class="pre">manifold_dimension()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.fit_graph"><code class="docutils literal notranslate"><span class="pre">fit_graph()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.is_connected"><code class="docutils literal notranslate"><span class="pre">is_connected()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.compute_laplacian"><code class="docutils literal notranslate"><span class="pre">compute_laplacian()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.compute_connection_laplacian"><code class="docutils literal notranslate"><span class="pre">compute_connection_laplacian()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.compute_gauges"><code class="docutils literal notranslate"><span class="pre">compute_gauges()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.compute_connections"><code class="docutils literal notranslate"><span class="pre">compute_connections()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.geometry.compute_eigendecomposition"><code class="docutils literal notranslate"><span class="pre">compute_eigendecomposition()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -306,5 +634,7 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

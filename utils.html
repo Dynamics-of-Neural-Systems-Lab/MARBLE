@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -242,14 +242,150 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="utils-module">
-<h1>Utils module<a class="headerlink" href="#utils-module" title="Link to this heading">¶</a></h1>
+          <section id="module-MARBLE.utils">
+<span id="utils-module"></span><h1>Utils module<a class="headerlink" href="#module-MARBLE.utils" title="Link to this heading">¶</a></h1>
+<p>Utils module.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.print_settings">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">print_settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#print_settings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.print_settings" title="Link to this definition">¶</a></dt>
+<dd><p>Print parameters to screen</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.parallel_proc">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">parallel_proc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fun</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#parallel_proc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.parallel_proc" title="Link to this definition">¶</a></dt>
+<dd><p>Distribute an iterable function between processes</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.move_to_gpu">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">move_to_gpu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#move_to_gpu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.move_to_gpu" title="Link to this definition">¶</a></dt>
+<dd><p>Move stuff to gpu</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.detach_from_gpu">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">detach_from_gpu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#detach_from_gpu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.detach_from_gpu" title="Link to this definition">¶</a></dt>
+<dd><p>detach stuff from gpu</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.to_SparseTensor">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">to_SparseTensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#to_SparseTensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.to_SparseTensor" title="Link to this definition">¶</a></dt>
+<dd><p>Adjacency matrix as torch_sparse tensor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edge_index</strong> (<em>2xE matrix</em>) – edge indices</p></li>
+<li><p><strong>size</strong> – pair (rows,cols) giving the size of the matrix.
+The default is the largest node of the edge_index.</p></li>
+<li><p><strong>value</strong> – list of weights. The default is unit values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>adjacency matrix in SparseTensor format</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.np2torch">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">np2torch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#np2torch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.np2torch" title="Link to this definition">¶</a></dt>
+<dd><p>Convert numpy to torch</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.to_list">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">to_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#to_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.to_list" title="Link to this definition">¶</a></dt>
+<dd><p>Convert to list</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.to_pandas">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">to_pandas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">augment_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#to_pandas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.to_pandas" title="Link to this definition">¶</a></dt>
+<dd><p>Convert numpy to pandas</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="MARBLE.utils.EdgeIndex">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">EdgeIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edge_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#EdgeIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.EdgeIndex" title="Link to this definition">¶</a></dt>
+<dd><p>Edge Index.</p>
+<p>Create new instance of EdgeIndex(edge_index, e_id, size)</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MARBLE.utils.EdgeIndex.edge_index">
+<span class="sig-name descname"><span class="pre">edge_index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tensor</span></em><a class="headerlink" href="#MARBLE.utils.EdgeIndex.edge_index" title="Link to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MARBLE.utils.EdgeIndex.e_id">
+<span class="sig-name descname"><span class="pre">e_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#MARBLE.utils.EdgeIndex.e_id" title="Link to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MARBLE.utils.EdgeIndex.size">
+<span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#MARBLE.utils.EdgeIndex.size" title="Link to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MARBLE.utils.EdgeIndex.to">
+<span class="sig-name descname"><span class="pre">to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#EdgeIndex.to"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.EdgeIndex.to" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.expand_index">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">expand_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ind</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#expand_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.expand_index" title="Link to this definition">¶</a></dt>
+<dd><p>Interleave dim incremented copies of ind</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.to_block_diag">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">to_block_diag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sp_tensors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#to_block_diag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.to_block_diag" title="Link to this definition">¶</a></dt>
+<dd><p>To block diagonal.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.expand_edge_index">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">expand_edge_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#expand_edge_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.expand_edge_index" title="Link to this definition">¶</a></dt>
+<dd><p>When using rotations, we replace nodes by vector spaces so
+need to expand adjacency matrix from nxn -&gt; n*dimxn*dim matrices</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.tile_tensor">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">tile_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#tile_tensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.tile_tensor" title="Link to this definition">¶</a></dt>
+<dd><p>Enlarge nxn tensor to d*dim x n*dim block matrix. Effectively
+computing a sparse version of torch.kron(K, torch.ones((dim,dim)))</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.restrict_dimension">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">restrict_dimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sp_tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#restrict_dimension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.restrict_dimension" title="Link to this definition">¶</a></dt>
+<dd><p>Limit the dimension of the tensor</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.restrict_to_batch">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">restrict_to_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sp_tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#restrict_to_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.restrict_to_batch" title="Link to this definition">¶</a></dt>
+<dd><p>Restrict tensor to current batch</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MARBLE.utils.standardize">
+<span class="sig-prename descclassname"><span class="pre">MARBLE.utils.</span></span><span class="sig-name descname"><span class="pre">standardize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MARBLE/utils.html#standardize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MARBLE.utils.standardize" title="Link to this definition">¶</a></dt>
+<dd><p>Standarsise data row-wise</p>
+</dd></dl>
+
 </section>
 
         </article>
@@ -295,8 +431,48 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Utils module</a><ul>
+<li><a class="reference internal" href="#MARBLE.utils.print_settings"><code class="docutils literal notranslate"><span class="pre">print_settings()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.parallel_proc"><code class="docutils literal notranslate"><span class="pre">parallel_proc()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.move_to_gpu"><code class="docutils literal notranslate"><span class="pre">move_to_gpu()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.detach_from_gpu"><code class="docutils literal notranslate"><span class="pre">detach_from_gpu()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.to_SparseTensor"><code class="docutils literal notranslate"><span class="pre">to_SparseTensor()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.np2torch"><code class="docutils literal notranslate"><span class="pre">np2torch()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.to_list"><code class="docutils literal notranslate"><span class="pre">to_list()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.to_pandas"><code class="docutils literal notranslate"><span class="pre">to_pandas()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.EdgeIndex"><code class="docutils literal notranslate"><span class="pre">EdgeIndex</span></code></a><ul>
+<li><a class="reference internal" href="#MARBLE.utils.EdgeIndex.edge_index"><code class="docutils literal notranslate"><span class="pre">EdgeIndex.edge_index</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.EdgeIndex.e_id"><code class="docutils literal notranslate"><span class="pre">EdgeIndex.e_id</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.EdgeIndex.size"><code class="docutils literal notranslate"><span class="pre">EdgeIndex.size</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.EdgeIndex.to"><code class="docutils literal notranslate"><span class="pre">EdgeIndex.to()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MARBLE.utils.expand_index"><code class="docutils literal notranslate"><span class="pre">expand_index()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.to_block_diag"><code class="docutils literal notranslate"><span class="pre">to_block_diag()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.expand_edge_index"><code class="docutils literal notranslate"><span class="pre">expand_edge_index()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.tile_tensor"><code class="docutils literal notranslate"><span class="pre">tile_tensor()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.restrict_dimension"><code class="docutils literal notranslate"><span class="pre">restrict_dimension()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.restrict_to_batch"><code class="docutils literal notranslate"><span class="pre">restrict_to_batch()</span></code></a></li>
+<li><a class="reference internal" href="#MARBLE.utils.standardize"><code class="docutils literal notranslate"><span class="pre">standardize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
